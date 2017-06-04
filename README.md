@@ -1,6 +1,8 @@
 Shaarli for nginx
 =================
 
+[![Build Status](https://travis-ci.org/MicroJoe/ansible-role-shaarli.svg?branch=master)](https://travis-ci.org/MicroJoe/ansible-role-shaarli)
+
 A Shaarli role for nginx.
 
 Requirements
