@@ -1,0 +1,31 @@
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	root {{ shaarli_base }};
+
+	index index.html index.htm index.nginx-debian.html index.php;
+
+	server_name {{ shaarli_servername }};
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+	# pass the PHP scripts to FastCGI server
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+
+		# With php5-fpm:
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+	}
+
+	# protect data directory
+	location /data {
+		deny all;
+		return 403;
+	}
+}

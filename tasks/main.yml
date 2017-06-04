@@ -1,0 +1,35 @@
+---
+# tasks file for MicroJoe.shaarli
+#
+- name: Make sure Shaarli group exists
+  group:
+    name: "{{ shaarli_group }}"
+
+- name: Make sure Shaarli user exists
+  user:
+    name: "{{ shaarli_user }}"
+    group: "{{ shaarli_group }}"
+
+- name: Make sure Shaarli base directory exists
+  file:
+    path: "{{ shaarli_base }}"
+    state: directory
+
+- name: Download and extract Shaarli
+  unarchive:
+    src: "{{ shaarli_source }}"
+    dest: "{{ shaarli_base }}"
+    remote_src: true
+    extra_opts: ["--strip-components=1"]
+    group: "{{ shaarli_group }}"
+    owner: "{{ shaarli_user }}"
+    mode: u=rwX,g=rwX,o=rX
+  tags:
+    - upgrade
+
+- name: Install nginx configuration file
+  template:
+    src: files/nginx.j2
+    dest: /etc/nginx/sites-available/shaarli.conf
+    owner: root
+    group: root
