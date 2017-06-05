@@ -33,3 +33,4 @@
     dest: /etc/nginx/sites-available/shaarli.conf
     owner: root
     group: root
+  notify: restart nginx
