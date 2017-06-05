@@ -27,6 +27,13 @@
   tags:
     - upgrade
 
+- name: Install php version file
+  template:
+    src: templates/shaarli_version.php.j2
+    dest: "{{ shaarli_base }}/shaarli_version.php"
+    owner: "{{ shaarli_user }}"
+    group: "{{ shaarli_group }}"
+
 - name: Install nginx configuration file {{ shaarli_nginx_filename }}
   template:
     src: templates/nginx.j2
