@@ -29,7 +29,7 @@
 
 - name: Install nginx configuration file
   template:
-    src: files/nginx.j2
+    src: templates/nginx.j2
     dest: /etc/nginx/sites-available/shaarli.conf
     owner: root
     group: root
