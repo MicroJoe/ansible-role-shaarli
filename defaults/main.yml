@@ -1,6 +1,7 @@
 ---
 # defaults file for MicroJoe.shaarli
-shaarli_source: https://github.com/shaarli/Shaarli/releases/download/v0.9.0/shaarli-v0.9.0-full.tar.gz
+shaarli_version: 0.9.0
+shaarli_source: https://github.com/shaarli/Shaarli/releases/download/v{{ shaarli_version }}/shaarli-v{{ shaarli_version }}-full.tar.gz
 
 shaarli_base: /var/www/shaarli
 
