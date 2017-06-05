@@ -1,13 +1,12 @@
 
 server {
-	listen 80;
-	listen [::]:80;
+	listen {{ shaarli_nginx_listen }};
 
 	root {{ shaarli_base }};
 
 	index index.html index.htm index.nginx-debian.html index.php;
 
-	server_name {{ shaarli_servername }};
+	server_name {{ shaarli_nginx_server_name }};
 
 	location ~ /\. {
 		# deny access to dotfiles

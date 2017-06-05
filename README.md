@@ -15,14 +15,21 @@ A Debian Jessie box with nginx should be fine.
 Role Variables
 --------------
 
-- `shaarli_source` URL to retrieve the Shaarli archive from. Defaults to Github
+- `shaarli_source` URL to retrieve the Shaarli archive from. Default Github
   archive for v0.9.0 release
-- `shaarli_base` Base directory to put Shaarli installation into. Defaults to
+- `shaarli_base` Base directory to put Shaarli installation into. Default
   `/var/www/shaarli`
-- `shaarli_user` Owner of the files. Defaults to dedicated `shaarli` user.
-- `shaarli_group` Group of the files. Defaults to required `www-data` group for
-  php-fpm access.
- - `shaarli_servername` Name of the vhost. Defaults to `shaarli.localhost`.
+- `shaarli_user` Owner of the application files. Default dedicated `shaarli`
+  user
+- `shaarli_group` Group assigned to the application files. Default required
+  `www-data` group for php-fpm access
+
+Ngnix-related variables:
+
+- `shaarli_nginx_server_name` Name of the vhost. Default `shaarli.localhost`
+- `shaarli_nginx_listen` Listed directive for nginx. Default `80`
+- `shaarli_nginx_filename` Configuration file name for nginx. Default
+  `shaarli.conf`
 
 Dependencies
 ------------

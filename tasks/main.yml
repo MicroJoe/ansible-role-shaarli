@@ -27,10 +27,10 @@
   tags:
     - upgrade
 
-- name: Install nginx configuration file
+- name: Install nginx configuration file {{ shaarli_nginx_filename }}
   template:
     src: templates/nginx.j2
-    dest: /etc/nginx/sites-available/shaarli.conf
+    dest: /etc/nginx/sites-available/{{ shaarli_nginx_filename }}
     owner: root
     group: root
   notify: restart nginx
