@@ -8,7 +8,6 @@ shaarli_base: /var/www/shaarli
 shaarli_group: www-data
 shaarli_user: shaarli
 
-shaarli_nginx_listen: 80
 shaarli_nginx_server_name: shaarli.localhost
 shaarli_nginx_filename: shaarli.conf
 
