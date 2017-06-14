@@ -11,3 +11,6 @@ shaarli_user: shaarli
 shaarli_nginx_server_name: shaarli.localhost
 shaarli_nginx_filename: shaarli.conf
 
+letsencrypt_wellknown: /var/www/letsencrypt
+letsencrypt_activate: false
+letsencrypt_https: false

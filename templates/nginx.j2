@@ -3,23 +3,34 @@ server {
 
 	server_name {{ shaarli_nginx_server_name }};
 
+{% if letsencrypt_activate %}
+	location .well-known {
+		root {{ letsencrypt_wellknown }};
+	}
+
+{% if letsencrypt_https %}
 	location / {
 		rewrite ^(.*)$ https://{{ shaarli_nginx_server_name }}$1 permanent;
 	}
 }
 
 server {
-	listen 443;
+	listen 443 ssl;
+
+	server_name {{ shaarli_nginx_server_name }};
 
 	ssl on;
 	ssl_certificate /etc/letsencrypt/live/{{ shaarli_nginx_server_name }}/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/{{ shaarli_nginx_server_name }}/privkey.pem;
 
+	include /etc/nginx/snippets/ssl.conf;
+
+{% endif %}
+{% endif %}
+
 	root {{ shaarli_base }};
 
 	index index.html index.htm index.nginx-debian.html index.php;
-
-	server_name {{ shaarli_nginx_server_name }};
 
 	location ~ /\. {
 		# deny access to dotfiles
