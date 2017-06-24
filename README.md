@@ -10,7 +10,7 @@ Requirements
 
 To be defined.
 
-- Debian Jessie
+- Debian Stretch (wont work with Jessie)
 - Nginx
 - Letsencrypt
 
