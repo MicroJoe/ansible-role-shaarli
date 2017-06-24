@@ -24,8 +24,8 @@
     group: "{{ shaarli_group }}"
     owner: "{{ shaarli_user }}"
     mode: u=rwX,g=rwX,o=rX
-  tags:
-    - upgrade
+  args:
+    creates: "{{ shaarli_base }}/index.php"
 
 - name: Install php version file
   template:
