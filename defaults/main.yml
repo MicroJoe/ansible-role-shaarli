@@ -9,7 +9,7 @@ shaarli_group: www-data
 shaarli_user: shaarli
 
 shaarli_nginx_server_name: shaarli.localhost
-shaarli_nginx_filename: shaarli.conf
+shaarli_nginx_filename: shaarli-{{ shaarli_nginx_server_name }}
 
 letsencrypt_wellknown: /var/www/letsencrypt
 letsencrypt_activate: false
