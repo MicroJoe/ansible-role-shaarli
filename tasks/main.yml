@@ -34,6 +34,14 @@
     owner: "{{ shaarli_user }}"
     group: "{{ shaarli_group }}"
 
+- name: Install robots.txt deny all file
+  copy:
+    src: files/robots.txt
+    dest: "{{ shaarli_base }}/robots.txt"
+    owner: "{{ shaarli_user }}"
+    group: "{{ shaarli_group }}"
+  when: shaarli_deny_robots
+
 - name: Install nginx configuration file {{ shaarli_nginx_filename }}
   template:
     src: templates/nginx.j2

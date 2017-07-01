@@ -26,6 +26,7 @@ Role Variables
   user
 - `shaarli_group` Group assigned to the application files. Default: required
   `www-data` group for php-fpm access
+- `shaarli_deny_robots` Deny robots using `robots.txt`. Default: false.
 
 ### Nginx configuration file
 
