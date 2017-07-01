@@ -26,8 +26,8 @@ server {
 	error_log /var/log/nginx/{{ shaarli_nginx_server_name }}.error.log;
 
 	ssl on;
-	ssl_certificate /etc/letsencrypt/live/{{ shaarli_nginx_server_name }}/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/{{ shaarli_nginx_server_name }}/privkey.pem;
+	ssl_certificate /etc/letsencrypt/live/{{ letsencrypt_domain }}/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/{{ letsencrypt_domain }}/privkey.pem;
 
 	include /etc/nginx/snippets/ssl.conf;
 

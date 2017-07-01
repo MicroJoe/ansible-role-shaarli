@@ -37,6 +37,8 @@ Role Variables
 
 ### Letsencrypt support
 
+- `letsencrypt_domain` Domain used for letsencrypt. Defaults to the nginx
+  domain.
 - `letsencrypt_wellknown` Directory path of the LetsEncrypt directory used for
   certificate validation. Default: `/var/www/letsencrypt`
 - `letsencrypt_activate` Activate LetsEncrypt and HTTPS support. Default: false
