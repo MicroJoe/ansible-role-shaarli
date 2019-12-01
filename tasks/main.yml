@@ -3,15 +3,14 @@
 
 - name: Install php dependencies
   apt:
-    name: "{{ item }}"
+    name:
+      - php-cli
+      - php-fpm
+      - php-gd
+      - php-intl
+      - php-xml
+      - php-mbstring
     state: present
-  with_items:
-    - php-cli
-    - php-fpm
-    - php-gd
-    - php-intl
-    - php-xml
-    - php-mbstring
 
 - name: Make sure Shaarli group exists
   group:
