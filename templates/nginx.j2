@@ -2,9 +2,9 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	server_name {{ shaarli_nginx_server_name }};
-	access_log /var/log/nginx/{{ shaarli_nginx_server_name }}.access.log;
-	error_log /var/log/nginx/{{ shaarli_nginx_server_name }}.error.log;
+	server_name {{ shaarli_domain }};
+	access_log /var/log/nginx/{{ shaarli_domain }}.access.log;
+	error_log /var/log/nginx/{{ shaarli_domain }}.error.log;
 
 {% if letsencrypt_activate %}
 	location .well-known {
@@ -13,7 +13,7 @@ server {
 
 {% if letsencrypt_https %}
 	location / {
-		rewrite ^(.*)$ https://{{ shaarli_nginx_server_name }}$1 permanent;
+		rewrite ^(.*)$ https://{{ shaarli_domain }}$1 permanent;
 	}
 }
 
@@ -21,9 +21,9 @@ server {
 	listen 443 ssl;
 	listen [::]:443 ssl;
 
-	server_name {{ shaarli_nginx_server_name }};
-	access_log /var/log/nginx/{{ shaarli_nginx_server_name }}.access.log;
-	error_log /var/log/nginx/{{ shaarli_nginx_server_name }}.error.log;
+	server_name {{ shaarli_domain }};
+	access_log /var/log/nginx/{{ shaarli_domain }}.access.log;
+	error_log /var/log/nginx/{{ shaarli_domain }}.error.log;
 
 	ssl on;
 	ssl_certificate /etc/letsencrypt/live/{{ letsencrypt_domain }}/fullchain.pem;

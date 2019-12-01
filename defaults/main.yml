@@ -8,11 +8,11 @@ shaarli_base: /var/www/shaarli
 shaarli_group: www-data
 shaarli_user: shaarli
 
-shaarli_nginx_server_name: shaarli.localhost
-shaarli_nginx_filename: shaarli-{{ shaarli_nginx_server_name }}
+shaarli_domain: shaarli.localhost
+shaarli_nginx_filename: shaarli-{{ shaarli_domain }}
 shaarli_deny_robots: true
 
 letsencrypt_wellknown: /var/www/letsencrypt
 letsencrypt_activate: true
 letsencrypt_https: true
-letsencrypt_domain: "{{ shaarli_nginx_server_name }}"
+letsencrypt_domain: "{{ shaarli_domain }}"

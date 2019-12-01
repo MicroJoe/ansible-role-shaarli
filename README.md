@@ -30,7 +30,7 @@ Role Variables
 
 ### Nginx configuration file
 
-- `shaarli_nginx_server_name` Server name for the nginx configuration file.
+- `shaarli_domain` Server name for the nginx configuration file.
   Default: `shaarli.localhost` so that users can register root account before
   setting up public access
 - `shaarli_nginx_filename` Name of the configuration file that will be placed
@@ -59,7 +59,7 @@ Example Playbook
     - hosts: servers
       roles:
         - role: shaarli
-          shaarli_nginx_server_name: myshaarly.example.com
+          shaarli_domain: myshaarly.example.com
           tags: [shaarli]
           letsencrypt_activate: true
           letsencrypt_https: true # disable for verify first
